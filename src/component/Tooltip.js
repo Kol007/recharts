@@ -151,15 +151,20 @@ class Tooltip extends Component {
   }
 
   render() {
-    const { payload, isAnimationActive, animationDuration, animationEasing,
+    const { payload, activePayload, isAnimationActive, animationDuration, animationEasing,
       filterNull, paylodUniqBy } = this.props;
-    const finalPayload = getUniqPaylod(paylodUniqBy, filterNull && payload && payload.length ?
-      payload.filter(entry => !_.isNil(entry.value)) : payload);
+    
+    const tempPayload  = activePayload ? activePayload : payload;
+
+    const finalPayload = getUniqPaylod(paylodUniqBy, filterNull && tempPayload && tempPayload.length ?
+      tempPayload.filter(entry => !_.isNil(entry.value)) : tempPayload);
     const hasPayload = finalPayload && finalPayload.length;
-    const { content, viewBox, coordinate, position, active, offset, wrapperStyle } = this.props;
+    const { content, viewBox, coordinate, position, active, activeActive, offset, wrapperStyle } = this.props;
+    const tempActive = activeActive ? activeActive : active;
+
     let outerStyle = {
       pointerEvents: 'none',
-      visibility: active && hasPayload ? 'visible' : 'hidden',
+      visibility: tempActive && hasPayload ? 'visible' : 'hidden',
       position: 'absolute',
       top: 0,
       ...wrapperStyle,
@@ -194,7 +199,7 @@ class Tooltip extends Component {
       }),
     };
 
-    if (isAnimationActive && active) {
+    if (isAnimationActive && tempActive) {
       outerStyle = {
         ...outerStyle,
         ...translateStyle({
