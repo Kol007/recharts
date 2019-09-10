@@ -221,6 +221,9 @@ class Treemap extends Component {
     // customize nest index content
     nestIndexContent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
+    onAnimationStart: PropTypes.func,
+    onAnimationEnd: PropTypes.func,
+
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onClick: PropTypes.func,
@@ -230,6 +233,7 @@ class Treemap extends Component {
     animationBegin: PropTypes.number,
     animationDuration: PropTypes.number,
     animationEasing: PropTypes.oneOf(['ease', 'ease-in', 'ease-out', 'ease-in-out', 'linear']),
+    animationId: PropTypes.string,
   };
 
   static defaultProps = {

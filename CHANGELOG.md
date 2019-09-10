@@ -1,3 +1,22 @@
+## 1.7.1 (Aug 13, 2019)
+
+### fix
+
+- Fix bar chart tooltip (#1837)
+
+## 1.7.0 (Aug 08, 2019)
+
+### feat
+
+- allow events on Text and Label components
+- Enable Tooltip's `translate` style
+- Added position props for ReferenceLine to allow to control offset of it
+
+### fix
+
+- handle `dataKey` as function, get correct data array for tooltip
+- fix style of legend in case of area and radar use fill for fallback color
+
 ## 1.6.2 (May 22, 2019)
 
 ### feat
@@ -44,7 +63,7 @@
 ### feat
 
 - allow aria-* attributes and "role", "focusable", "tabIndex" of charts, fix #1226, fix #1584
-- add new props "paylodUniqBy" to Tooltip and Legend 
+- add new props "paylodUniqBy" to Tooltip and Legend
 
 ## 1.4.4(Feb 15, 2019)
 

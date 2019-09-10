@@ -193,18 +193,18 @@ class Tooltip extends Component {
     }
 
     outerStyle = {
-      ...outerStyle,
       ...translateStyle({
         transform: this.props.useTranslate3d ? `translate3d(${translateX}px, ${translateY}px, 0)` : `translate(${translateX}px, ${translateY}px)`,
       }),
+      ...outerStyle,
     };
 
     if (isAnimationActive && tempActive) {
       outerStyle = {
-        ...outerStyle,
         ...translateStyle({
           transition: `transform ${animationDuration}ms ${animationEasing}`,
         }),
+        ...outerStyle,
       };
     }
 
